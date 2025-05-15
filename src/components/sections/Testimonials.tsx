@@ -18,21 +18,25 @@ const Testimonial = ({ quote, name, position, company }: TestimonialProps) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className="flex flex-col items-center text-center mx-auto max-w-3xl"
-    >      <div className="mb-6">
-        <div className="relative h-12 w-12 overflow-hidden rounded-full">
+    >      
+      <div className="mb-8">
+        <div className="relative h-16 w-16 overflow-hidden rounded-full border-2 border-[#D4AF37]/30">
           <Image
-            src="/placeholder-150.svg"
+            src="/images/testimonials/tyler.png"
             alt={name}
             fill
             className="object-cover"
           />
         </div>
       </div>
-      <blockquote className="text-lg md:text-xl italic text-gray-700 dark:text-gray-300 mb-4">
-        "{quote}"
+      <div className="text-[#D4AF37] text-3xl font-serif mb-4">"</div>
+      <blockquote className="text-lg md:text-xl font-light leading-relaxed text-gray-700 dark:text-[#E2E8F0] mb-6 max-w-2xl">
+        {quote}
       </blockquote>
-      <p className="font-semibold">{name}</p>
-      <p className="text-sm text-gray-500 dark:text-gray-400">
+      <div className="text-[#D4AF37] text-3xl font-serif mb-4 rotate-180">"</div>
+      <div className="w-12 h-0.5 bg-[#D4AF37] opacity-30 mb-4"></div>
+      <p className="font-semibold text-black dark:text-[#D4AF37]">{name}</p>
+      <p className="text-sm text-gray-500 dark:text-[#94A3B8]">
         {position} at {company}
       </p>
     </motion.div>
@@ -41,10 +45,15 @@ const Testimonial = ({ quote, name, position, company }: TestimonialProps) => {
 
 const Testimonials = () => {
   return (
-    <section className="w-full py-12 md:py-24 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="w-full py-16 md:py-32 bg-gray-50 dark:bg-[#0F172A]/95 relative">
+      <div className="absolute inset-0 dark:bg-[url('/images/grid-pattern.png')] dark:opacity-5 pointer-events-none"></div>
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-3 dark:text-[#D4AF37]">What Our Clients Say</h2>
+          <p className="text-gray-600 dark:text-[#E2E8F0] max-w-xl mx-auto">We're proud to have helped numerous businesses reach their digital potential</p>
+        </div>
         <Testimonial
-          quote="Agencies helped us build our website from scratch to production in a record 1 month time. They took our requirements and delivered a website we are proud of so much that we are thrilled."
+          quote="Agencies helped us build our website from scratch to production in a record 1 month time. They took our requirements and delivered a website we are proud of so much that we are thrilled with the results."
           name="Tyler Durden"
           position="Founder"
           company="Fight Dragons"

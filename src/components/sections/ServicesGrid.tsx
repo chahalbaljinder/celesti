@@ -16,13 +16,13 @@ const ServiceGridItem = ({ icon, title, description }: ServiceGridItemProps) => 
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="flex flex-col items-start p-4"
+      className="flex flex-col items-start p-6 bg-white dark:bg-[#1E293B] rounded-lg shadow-md dark:shadow-lg border border-gray-100 dark:border-[#0F172A]/50 hover:shadow-xl transition-shadow duration-300"
     >
-      <div className="mb-4 rounded-lg p-2 bg-gray-100 dark:bg-gray-800">
+      <div className="mb-5 rounded-full p-3 bg-gray-100 dark:bg-[#0F172A] text-gray-800 dark:text-[#D4AF37]">
         {icon}
       </div>
-      <h3 className="text-lg font-semibold mb-2">{title}</h3>
-      <p className="text-sm text-gray-500 dark:text-gray-400">{description}</p>
+      <h3 className="text-lg font-semibold mb-3 dark:text-[#D4AF37]">{title}</h3>
+      <p className="text-sm text-gray-600 dark:text-[#E2E8F0] leading-relaxed">{description}</p>
     </motion.div>
   );
 };
@@ -150,23 +150,24 @@ const ServicesGrid = () => {
       description: "Animations, tranlations, fancy designs. Don't worry about how we do it. Just let us do our job and you'll end up with a nice website."
     }
   ];
-
   return (
-    <section className="w-full py-12 md:py-24">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="w-full py-16 md:py-32 bg-gray-50 dark:bg-[#0F172A]/95 relative">
+      <div className="absolute inset-0 dark:bg-[url('/images/grid-pattern.png')] dark:opacity-5 pointer-events-none"></div>
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl font-bold mb-4">We handle just about everything!</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
-            We handle everything from planning and design all the way to your next website deployment. We create web apps that simply work.
+          <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37]">Our Expertise</div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 dark:text-[#D4AF37]">Comprehensive Digital Solutions</h2>
+          <p className="text-gray-600 dark:text-[#E2E8F0] max-w-2xl mx-auto">
+            From strategic planning to flawless execution, we deliver end-to-end solutions that elevate your brand and create meaningful digital experiences.
           </p>
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, i) => (
             <ServiceGridItem
               key={i}

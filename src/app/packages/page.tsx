@@ -10,11 +10,11 @@ import { CheckIcon } from "@heroicons/react/24/outline";
 
 const Feature = ({ text }: { text: string }) => {
   return (
-    <div className="flex items-start mb-6">
-      <div className="flex-shrink-0 h-6 w-6 rounded-full bg-green-100 flex items-center justify-center mr-3">
-        <CheckIcon className="h-4 w-4 text-green-600" />
+    <div className="flex items-start mb-6 group">
+      <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#D4AF37]/20 flex items-center justify-center mr-4 group-hover:bg-[#D4AF37]/30 transition-colors duration-300">
+        <CheckIcon className="h-4 w-4 text-[#D4AF37]" />
       </div>
-      <p className="text-gray-700 dark:text-gray-300 text-left">{text}</p>
+      <p className="text-gray-700 dark:text-[#E2E8F0] text-left">{text}</p>
     </div>
   );
 };
@@ -55,91 +55,114 @@ export default function PackagesPage() {
       liveUrl: "https://cremedigital.com/"
     }
   ];
-
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col dark:bg-[#0F172A]">
       <Navbar />
       <main className="flex-grow pt-14">
-        <section className="w-full py-24 md:py-32">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+        <section className="w-full py-24 md:py-32 relative dark:bg-[#0F172A]">
+          <div className="absolute inset-0 dark:bg-[url('/images/grid-pattern.png')] dark:opacity-5 pointer-events-none"></div>
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
               <motion.div 
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <h1 className="text-5xl font-bold mb-6">$4,995</h1>
-                <h2 className="text-2xl font-medium mb-6">Landing Page Development</h2>
-                <p className="text-gray-600 dark:text-gray-400 mb-8">
-                  A landing page can make or break your business. We create world-class,
-                  professional landing pages that convert and help you achieve your sales targets.
+                <div className="inline-block mb-4 text-sm font-medium px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37]">Premium Package</div>
+                <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] to-[#FEF3C7]">$7,995</h1>
+                <h2 className="text-2xl font-medium mb-6 dark:text-[#D4AF37]">Luxury Landing Page Development</h2>
+                <p className="text-gray-600 dark:text-[#E2E8F0] mb-8 text-lg">
+                  An exceptional landing page is the cornerstone of your digital presence. We create sophisticated, 
+                  high-converting landing pages that elevate your brand and drive measurable results.
                 </p>
-                <a 
-                  href="mailto:youremail@yourgmail.com"
-                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                >
-                  Buy Package
-                </a>
-              </motion.div>
-              <motion.div 
+                <div className="flex space-x-4">
+                  <a 
+                    href="mailto:contact@luxuryagency.com"
+                    className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-md text-[#0F172A] bg-[#D4AF37] hover:bg-[#D4AF37]/90 transition-colors duration-300 focus:outline-none"
+                  >
+                    Get Started
+                  </a>
+                  <a 
+                    href="/contact"
+                    className="inline-flex items-center px-6 py-3 border border-[#D4AF37]/30 text-base font-medium rounded-md text-gray-800 dark:text-[#E2E8F0] hover:bg-[#D4AF37]/10 transition-colors duration-300"
+                  >
+                    Learn More
+                  </a>
+                </div>
+              </motion.div>              <motion.div 
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="relative"
               >
-                <Image
-                  src="/images/products/aceternity.png"
-                  alt="Landing Page Example"
-                  width={640}
-                  height={360}
-                  className="rounded-lg shadow-xl w-full"
-                />
+                <div className="relative p-3 bg-white dark:bg-[#1E293B] shadow-xl rounded-lg border border-gray-100 dark:border-[#0F172A]/50">
+                  <div className="absolute -top-3 -left-3 w-20 h-20 bg-[#D4AF37]/10 rounded-full blur-xl"></div>
+                  <div className="absolute -bottom-3 -right-3 w-20 h-20 bg-[#D4AF37]/10 rounded-full blur-xl"></div>
+                  <Image
+                    src="/images/products/aceternity.png"
+                    alt="Luxury Landing Page Example"
+                    width={640}
+                    height={360}
+                    className="rounded-md shadow-lg w-full relative z-10 border border-gray-100 dark:border-[#0F172A]/50"
+                  />
+                  <div className="absolute bottom-8 right-8 bg-[#1E293B]/80 backdrop-blur-sm border border-[#D4AF37]/20 px-4 py-2 rounded-md shadow-lg z-20">
+                    <span className="text-[#D4AF37] font-medium">Premium Design</span>
+                  </div>
+                </div>
               </motion.div>
             </div>
-            
-            <motion.div 
+              <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="mb-16"
+              className="mb-20"
             >
-              <h2 className="text-2xl font-bold mb-8">What's included</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+              <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37]">Premium Features</div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-8 dark:text-[#D4AF37]">What's Included</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 p-8 bg-white dark:bg-[#1E293B]/60 rounded-xl shadow-lg border border-gray-100 dark:border-[#0F172A]/30">
                 {features.map((feature, index) => (
                   <Feature key={index} text={feature} />
                 ))}
               </div>
             </motion.div>
-            
-            <motion.div 
+              <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h2 className="text-2xl font-bold mb-8">Some of the websites that we have built</h2>
-              <p className="text-gray-600 dark:text-gray-400 mb-8">
-                A look at some of the amazing websites that we've built recently.
+              <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37]">Our Portfolio</div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-6 dark:text-[#D4AF37]">Case Studies</h2>
+              <p className="text-gray-600 dark:text-[#E2E8F0] mb-12 text-lg">
+                Explore some of our premium digital experiences that have transformed businesses.
               </p>
               
-              <div className="space-y-16">
+              <div className="space-y-24">
                 {projects.map((project, index) => (
-                  <div key={project.title} className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                  <div key={project.title} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start group">
                     <div>
-                      <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
-                      <p className="text-lg mb-3">{project.description}</p>
-                      <p className="text-gray-500 mb-6">{project.subtitle}</p>
-                      <a 
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                      >
-                        Live Preview
-                      </a>
+                      <h3 className="text-2xl font-bold mb-4 dark:text-[#D4AF37] group-hover:text-[#D4AF37]/90 dark:group-hover:text-[#D4AF37] transition-colors duration-300">{project.title}</h3>
+                      <p className="text-lg mb-4 dark:text-[#E2E8F0]">{project.description}</p>
+                      <p className="text-gray-500 dark:text-[#94A3B8] mb-8">{project.subtitle}</p>
+                      <div className="flex space-x-4">
+                        <a 
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-5 py-2.5 border border-transparent text-sm font-medium rounded-md shadow-md text-[#0F172A] bg-[#D4AF37] hover:bg-[#D4AF37]/90 transition-colors duration-300"
+                        >
+                          Live Preview
+                        </a>
+                        <a 
+                          href="#"
+                          className="inline-flex items-center px-5 py-2.5 border border-[#D4AF37]/30 text-sm font-medium rounded-md text-gray-800 dark:text-[#E2E8F0] hover:bg-[#D4AF37]/10 transition-colors duration-300"
+                        >
+                          Case Study
+                        </a>
+                      </div>
                     </div>
-                    <div className="grid grid-cols-1 gap-4">
+                    <div className="grid grid-cols-1 gap-6">
                       {project.images.map((image, i) => (
-                        <div key={i} className="overflow-hidden rounded-lg shadow-md">
+                        <div key={i} className="overflow-hidden rounded-lg shadow-lg border border-transparent dark:border-[#D4AF37]/10 group-hover:shadow-xl transition-shadow duration-500">
                           <Image 
                             src={image} 
                             alt={`${project.title} screenshot ${i+1}`} 

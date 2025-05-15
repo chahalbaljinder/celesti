@@ -55,42 +55,39 @@ const Navbar = () => {
       console.log('Navigating to services page');
     }
   };
-
   return (
-    <header className="w-full px-4 lg:px-6 h-14 flex items-center justify-between fixed top-0 left-0 right-0 z-50 bg-white dark:bg-black/80 backdrop-blur-sm">
+    <header className="w-full px-4 lg:px-6 h-14 flex items-center justify-between fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#0F172A] backdrop-blur-sm border-b border-gray-100 dark:border-[#1E293B]">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center">
           <span className="font-semibold text-xl">
-            &lt; <span className="text-black dark:text-white">Agencies</span>
+            &lt; <span className="text-black dark:text-[#D4AF37]">Agencies</span>
           </span>
         </Link>        {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-6">
-          <Link href="/work" className="text-sm font-medium hover:text-gray-900 hover:underline">
+          <Link href="/work" className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300">
             Work
           </Link>          <Link 
             href={pathname === '/' ? '#services' : '/services'} 
-            className="text-sm font-medium hover:text-gray-900 hover:underline"
+            className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300"
             onClick={handleServicesClick}
             aria-current={pathname === '/services' ? 'page' : undefined}
           >
             Services
           </Link>
-          <Link href="/packages" className="text-sm font-medium hover:text-gray-900 hover:underline">
+          <Link href="/packages" className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300">
             Packages
           </Link>
-          <Link href="/templates" className="text-sm font-medium hover:text-gray-900 hover:underline">
+          <Link href="/templates" className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300">
             Templates
           </Link>
-          <Link href="/blog" className="text-sm font-medium hover:text-gray-900 hover:underline">
+          <Link href="/blog" className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300">
             Blog
           </Link>
-        </nav>
-
-        {/* Contact Button */}
+        </nav>        {/* Contact Button */}
         <div className="hidden md:block">
-          <Link 
+          <Link
             href="/contact"
-            className="inline-flex h-9 items-center justify-center rounded-md bg-blue-500 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50">
+            className="inline-flex h-9 items-center justify-center rounded-md bg-[#D4AF37] px-4 py-2 text-sm font-medium text-[#0F172A] shadow transition-colors hover:bg-[#FEF3C7] hover:text-[#0F172A] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#D4AF37] disabled:pointer-events-none disabled:opacity-50">
             Contact
           </Link>
         </div>
@@ -107,7 +104,7 @@ const Navbar = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6"
+            className="w-6 h-6 text-black dark:text-[#D4AF37]"
           >
             <path
               strokeLinecap="round"
@@ -116,26 +113,24 @@ const Navbar = () => {
             />
           </svg>
         </button>
-      </div>
-
-      {/* Mobile Menu */}
+      </div>      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.2 }}
-          className="absolute top-14 left-0 right-0 bg-white dark:bg-gray-950 shadow-lg p-4 md:hidden"
+          className="absolute top-14 left-0 right-0 bg-white dark:bg-[#0F172A] shadow-lg p-4 md:hidden border-t border-gray-100 dark:border-[#1E293B]"
         >          <nav className="flex flex-col gap-4">
             <Link 
               href="/work" 
-              className="text-sm font-medium hover:text-gray-900 hover:underline"
+              className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300"
               onClick={() => setMobileMenuOpen(false)}
             >
               Work
             </Link>            <Link 
               href={pathname === '/' ? '#services' : '/services'}
-              className="text-sm font-medium hover:text-gray-900 hover:underline"
+              className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300"
               onClick={handleServicesClick}
               aria-current={pathname === '/services' ? 'page' : undefined}
             >
@@ -143,28 +138,27 @@ const Navbar = () => {
             </Link>
             <Link 
               href="/packages" 
-              className="text-sm font-medium hover:text-gray-900 hover:underline"
+              className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300"
               onClick={() => setMobileMenuOpen(false)}
             >
               Packages
-            </Link>
-            <Link 
+            </Link>            <Link 
               href="/templates" 
-              className="text-sm font-medium hover:text-gray-900 hover:underline"
+              className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300"
               onClick={() => setMobileMenuOpen(false)}
             >
               Templates
             </Link>
             <Link 
               href="/blog" 
-              className="text-sm font-medium hover:text-gray-900 hover:underline"
+              className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300"
               onClick={() => setMobileMenuOpen(false)}
             >
               Blog
             </Link>
             <Link 
               href="/contact"
-              className="inline-flex h-9 w-full items-center justify-center rounded-md bg-blue-500 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
+              className="inline-flex h-9 w-full items-center justify-center rounded-md bg-[#D4AF37] px-4 py-2 text-sm font-medium text-[#0F172A] shadow transition-colors hover:bg-[#FEF3C7] hover:text-[#0F172A] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#D4AF37] disabled:pointer-events-none disabled:opacity-50"
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact

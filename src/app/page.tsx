@@ -6,7 +6,7 @@ import Testimonials from "@/components/sections/Testimonials";
 import RecentWork from "@/components/sections/RecentWork";
 import ServicesGrid from "@/components/sections/ServicesGrid";
 import TestimonialsSecondary from "@/components/sections/TestimonialsSecondary";
-import ContactForm from "@/components/sections/ContactForm";
+import InteractiveContactForm from "@/components/sections/InteractiveContactForm";
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
         <RecentWork />
         <TestimonialsSecondary />
         <ServicesGrid />
-        <ContactForm />
+        <InteractiveContactForm />
       </main>
       <Footer />
     </div>
