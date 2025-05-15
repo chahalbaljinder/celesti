@@ -1,12 +1,60 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  
+  // Handle URL hash for direct linking to sections
+  useEffect(() => {
+    // Check if there's a hash in the URL
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const sectionId = window.location.hash.substring(1); // Remove the # character
+      scrollToSection(sectionId);
+    }
+  }, [pathname]); // Rerun when pathname changes// Function to scroll to a section with better positioning
+  const scrollToSection = (sectionId: string) => {
+    // Add a small delay to ensure the DOM is fully loaded
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        // Get the height of the navbar (14 units in Tailwind = 56px)
+        const navbarHeight = 56;
+        
+        // Get element's position relative to the viewport
+        const elementPosition = element.getBoundingClientRect().top;
+        
+        // Get the current scroll position
+        const offsetPosition = elementPosition + window.scrollY - navbarHeight;
+        
+        // Scroll to the element with an offset for the navbar
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      } else {
+        console.log(`Element with id '${sectionId}' not found`);
+      }
+    }, 100);
+  };
+  // Function to handle services link click
+  const handleServicesClick = (e: React.MouseEvent) => {
+    // Only prevent default and scroll to section if on home page
+    if (pathname === '/') {
+      e.preventDefault();
+      scrollToSection('services');
+      setMobileMenuOpen(false);
+      console.log('Scrolling to services section');
+    } else {
+      // If not on home page, the regular link navigation will work
+      console.log('Navigating to services page');
+    }
+  };
 
   return (
     <header className="w-full px-4 lg:px-6 h-14 flex items-center justify-between fixed top-0 left-0 right-0 z-50 bg-white dark:bg-black/80 backdrop-blur-sm">
@@ -15,18 +63,23 @@ const Navbar = () => {
           <span className="font-semibold text-xl">
             &lt; <span className="text-black dark:text-white">Agencies</span>
           </span>
-        </Link>
-
-        {/* Desktop Navigation */}
+        </Link>        {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-6">
-          <Link href="/" className="text-sm font-medium hover:text-gray-900 hover:underline">
-            About
-          </Link>
-          <Link href="/services" className="text-sm font-medium hover:text-gray-900 hover:underline">
+          <Link href="/work" className="text-sm font-medium hover:text-gray-900 hover:underline">
+            Work
+          </Link>          <Link 
+            href={pathname === '/' ? '#services' : '/services'} 
+            className="text-sm font-medium hover:text-gray-900 hover:underline"
+            onClick={handleServicesClick}
+            aria-current={pathname === '/services' ? 'page' : undefined}
+          >
             Services
           </Link>
-          <Link href="/testimonials" className="text-sm font-medium hover:text-gray-900 hover:underline">
-            Testimonials
+          <Link href="/packages" className="text-sm font-medium hover:text-gray-900 hover:underline">
+            Packages
+          </Link>
+          <Link href="/templates" className="text-sm font-medium hover:text-gray-900 hover:underline">
+            Templates
           </Link>
           <Link href="/blog" className="text-sm font-medium hover:text-gray-900 hover:underline">
             Blog
@@ -73,28 +126,34 @@ const Navbar = () => {
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.2 }}
           className="absolute top-14 left-0 right-0 bg-white dark:bg-gray-950 shadow-lg p-4 md:hidden"
-        >
-          <nav className="flex flex-col gap-4">
+        >          <nav className="flex flex-col gap-4">
             <Link 
-              href="/" 
+              href="/work" 
               className="text-sm font-medium hover:text-gray-900 hover:underline"
               onClick={() => setMobileMenuOpen(false)}
             >
-              About
-            </Link>
-            <Link 
-              href="/services" 
+              Work
+            </Link>            <Link 
+              href={pathname === '/' ? '#services' : '/services'}
               className="text-sm font-medium hover:text-gray-900 hover:underline"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={handleServicesClick}
+              aria-current={pathname === '/services' ? 'page' : undefined}
             >
               Services
             </Link>
             <Link 
-              href="/testimonials" 
+              href="/packages" 
               className="text-sm font-medium hover:text-gray-900 hover:underline"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Testimonials
+              Packages
+            </Link>
+            <Link 
+              href="/templates" 
+              className="text-sm font-medium hover:text-gray-900 hover:underline"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Templates
             </Link>
             <Link 
               href="/blog" 

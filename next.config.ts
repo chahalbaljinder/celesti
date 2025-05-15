@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Suppress hydration warnings from form processing IDs
+  experimental: {
+    // This suppresses the hydration warning due to browser extensions
+    strictNextHead: false
+  },
 };
 
 export default nextConfig;

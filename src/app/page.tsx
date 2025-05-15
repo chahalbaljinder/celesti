@@ -1,7 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
-import Services from "@/components/sections/Services";
+import ServicesSection from "@/components/sections/Services"; // Use existing file name with component alias
 import Testimonials from "@/components/sections/Testimonials";
 import RecentWork from "@/components/sections/RecentWork";
 import ServicesGrid from "@/components/sections/ServicesGrid";
@@ -14,7 +14,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-grow pt-14">
         <Hero />
-        <Services />
+        <ServicesSection />
         <Testimonials />
         <RecentWork />
         <TestimonialsSecondary />
