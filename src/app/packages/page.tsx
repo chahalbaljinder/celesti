@@ -9,12 +9,11 @@ import Image from "next/image";
 import { CheckIcon } from "@heroicons/react/24/outline";
 
 const Feature = ({ text }: { text: string }) => {
-  return (
-    <div className="flex items-start mb-6 group">
-      <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#D4AF37]/20 flex items-center justify-center mr-4 group-hover:bg-[#D4AF37]/30 transition-colors duration-300">
-        <CheckIcon className="h-4 w-4 text-[#D4AF37]" />
+  return (    <div className="flex items-start mb-6 group">
+      <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#FAD4D8]/20 flex items-center justify-center mr-4 group-hover:bg-[#FAD4D8]/40 transition-colors duration-300">
+        <CheckIcon className="h-4 w-4 text-[#333333]" />
       </div>
-      <p className="text-gray-700 dark:text-[#E2E8F0] text-left">{text}</p>
+      <p className="text-gray-700 dark:text-[#333333] text-left">{text}</p>
     </div>
   );
 };
@@ -67,24 +66,22 @@ export default function PackagesPage() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
-              >
-                <div className="inline-block mb-4 text-sm font-medium px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37]">Premium Package</div>
-                <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] to-[#FEF3C7]">$7,995</h1>
-                <h2 className="text-2xl font-medium mb-6 dark:text-[#D4AF37]">Luxury Landing Page Development</h2>
+              >                <div className="inline-block mb-4 text-sm font-medium px-3 py-1 rounded-full bg-[#FAD4D8]/20 text-[#333333]">Premium Package</div>
+                <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#FAD4D8] to-[#CFD1EA]">$7,995</h1>
+                <h2 className="text-2xl font-medium mb-6 dark:text-[#333333]">Luxury Landing Page Development</h2>
                 <p className="text-gray-600 dark:text-[#E2E8F0] mb-8 text-lg">
                   An exceptional landing page is the cornerstone of your digital presence. We create sophisticated, 
                   high-converting landing pages that elevate your brand and drive measurable results.
                 </p>
-                <div className="flex space-x-4">
-                  <a 
-                    href="mailto:contact@luxuryagency.com"
-                    className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-md text-[#0F172A] bg-[#D4AF37] hover:bg-[#D4AF37]/90 transition-colors duration-300 focus:outline-none"
+                <div className="flex space-x-4">                  <a 
+                    href="mailto:contact@celesti.com"
+                    className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-md text-[#333333] bg-[#FAD4D8] hover:bg-[#CFD1EA] transition-colors duration-300 focus:outline-none"
                   >
                     Get Started
                   </a>
                   <a 
                     href="/contact"
-                    className="inline-flex items-center px-6 py-3 border border-[#D4AF37]/30 text-base font-medium rounded-md text-gray-800 dark:text-[#E2E8F0] hover:bg-[#D4AF37]/10 transition-colors duration-300"
+                    className="inline-flex items-center px-6 py-3 border border-[#FAD4D8]/30 text-base font-medium rounded-md text-gray-800 dark:text-[#333333] hover:bg-[#FAD4D8]/20 transition-colors duration-300"
                   >
                     Learn More
                   </a>
@@ -116,9 +113,8 @@ export default function PackagesPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="mb-20"
-            >
-              <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37]">Premium Features</div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-8 dark:text-[#D4AF37]">What's Included</h2>
+            >              <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#FAD4D8]/20 text-[#333333]">Premium Features</div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-8 dark:text-[#333333]">What's Included</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 p-8 bg-white dark:bg-[#1E293B]/60 rounded-xl shadow-lg border border-gray-100 dark:border-[#0F172A]/30">
                 {features.map((feature, index) => (
                   <Feature key={index} text={feature} />
@@ -129,9 +125,8 @@ export default function PackagesPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37]">Our Portfolio</div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-6 dark:text-[#D4AF37]">Case Studies</h2>
+            >              <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#FAD4D8]/20 text-[#333333]">Our Portfolio</div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-6 dark:text-[#333333]">Case Studies</h2>
               <p className="text-gray-600 dark:text-[#E2E8F0] mb-12 text-lg">
                 Explore some of our premium digital experiences that have transformed businesses.
               </p>
@@ -140,21 +135,20 @@ export default function PackagesPage() {
                 {projects.map((project, index) => (
                   <div key={project.title} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start group">
                     <div>
-                      <h3 className="text-2xl font-bold mb-4 dark:text-[#D4AF37] group-hover:text-[#D4AF37]/90 dark:group-hover:text-[#D4AF37] transition-colors duration-300">{project.title}</h3>
+                      <h3 className="text-2xl font-bold mb-4 dark:text-[#333333] group-hover:text-[#FAD4D8] dark:group-hover:text-[#FAD4D8] transition-colors duration-300">{project.title}</h3>
                       <p className="text-lg mb-4 dark:text-[#E2E8F0]">{project.description}</p>
                       <p className="text-gray-500 dark:text-[#94A3B8] mb-8">{project.subtitle}</p>
-                      <div className="flex space-x-4">
-                        <a 
+                      <div className="flex space-x-4">                        <a 
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center px-5 py-2.5 border border-transparent text-sm font-medium rounded-md shadow-md text-[#0F172A] bg-[#D4AF37] hover:bg-[#D4AF37]/90 transition-colors duration-300"
+                          className="inline-flex items-center px-5 py-2.5 border border-transparent text-sm font-medium rounded-md shadow-md text-[#333333] bg-[#FAD4D8] hover:bg-[#CFD1EA] transition-colors duration-300"
                         >
                           Live Preview
                         </a>
                         <a 
                           href="#"
-                          className="inline-flex items-center px-5 py-2.5 border border-[#D4AF37]/30 text-sm font-medium rounded-md text-gray-800 dark:text-[#E2E8F0] hover:bg-[#D4AF37]/10 transition-colors duration-300"
+                          className="inline-flex items-center px-5 py-2.5 border border-[#FAD4D8]/30 text-sm font-medium rounded-md text-gray-800 dark:text-[#333333] hover:bg-[#FAD4D8]/20 transition-colors duration-300"
                         >
                           Case Study
                         </a>
@@ -193,9 +187,8 @@ export default function PackagesPage() {
                   className="rounded-full"
                 />
               </div>
-              <div className="md:col-span-2">
-                <blockquote className="text-lg text-gray-600 dark:text-gray-300 mb-4">
-                  "Agenlabs helped us build our website from scratch to production in a record 1 month time. They took our requirements and delivered a website we are proud of so much that we are thrilled. I couldn't be any happier. Highly recommended."
+              <div className="md:col-span-2">                <blockquote className="text-lg text-gray-600 dark:text-gray-300 mb-4">
+                  "Celesti helped us build our website from scratch to production in a record 1 month time. They took our requirements and delivered a website we are proud of so much that we are thrilled. I couldn't be any happier. Highly recommended."
                 </blockquote>
                 <footer>
                   <p className="font-bold">Tyler Durden</p>
@@ -219,10 +212,9 @@ export default function PackagesPage() {
               <h2 className="text-3xl font-bold mb-6">Want a custom website or more features? Talk to us.</h2>
               <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
                 See the blue chat box and the bottom? Click on it and talk to us. We will get back to you within 24 hours. Or just email us, just talk. :)
-              </p>
-              <a 
-                href="mailto:youremail@yourgmail.com"
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              </p>              <a 
+                href="mailto:contact@celesti.com"
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-[#333333] bg-[#FAD4D8] hover:bg-[#CFD1EA] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FAD4D8]"
               >
                 Contact Us
               </a>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="160" height="50" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD700" />
+      <stop offset="50%" stop-color="#E6BE8A" />
+      <stop offset="100%" stop-color="#FFD700" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Main Text -->
+  <text x="20" y="30" font-family="Georgia, serif" font-size="30" font-weight="bold" fill="url(#goldGradient)" filter="url(#glow)">Celesti</text>
+  
+  <!-- Stars -->
+  <g fill="url(#goldGradient)">
+    <!-- Star 1 -->
+    <path d="M140,15 L142,20 L147,20.5 L143.5,24 L144,29 L140,26.5 L136,29 L136.5,24 L133,20.5 L138,20 Z" />
+    <!-- Star 2 -->
+    <path d="M150,10 L151,13 L154,13.5 L152,15.5 L152.5,18.5 L150,17 L147.5,18.5 L148,15.5 L146,13.5 L149,13 Z" />
+    <!-- Star 3 -->
+    <path d="M145,30 L146,33 L149,33.5 L147,35.5 L147.5,38.5 L145,37 L142.5,38.5 L143,35.5 L141,33.5 L144,33 Z" />
+  </g>
+</svg>

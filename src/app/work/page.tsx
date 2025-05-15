@@ -164,7 +164,7 @@ export default function WorkPage() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a 
-                  href="mailto:contact@luxuryagency.com"
+                  href="mailto:contact@celesti.com"
                   className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-md text-[#0F172A] bg-[#D4AF37] hover:bg-[#D4AF37]/90 transition-colors duration-300 focus:outline-none"
                 >
                   Contact Us

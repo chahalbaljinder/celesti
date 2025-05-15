@@ -3,12 +3,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --luxury-dark: #0F172A;  /* Deep navy */
-  --luxury-accent: #D4AF37; /* Gold */
-  --luxury-secondary: #1E293B; /* Slate blue */
-  --luxury-light: #F8FAFC; /* Light gray */
-  --luxury-text: #E2E8F0; /* Light silver */
-  --luxury-highlight: #FEF3C7; /* Soft gold */
+  --luxury-dark: #CFD1EA;  /* Soft lavender */
+  --luxury-accent: #FAD4D8; /* Pastel pink */
+  --luxury-secondary: #CCE2CB; /* Light mint/sage */
+  --luxury-light: #F2F0D5; /* Pale yellow */
+  --luxury-text: #333333; /* Dark text */
+  --luxury-highlight: #FAD4D8; /* Pastel pink */
 }
 
 @theme inline {

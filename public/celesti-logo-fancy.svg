@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background shape -->
+  <rect width="120" height="40" fill="none" />
+  
+  <!-- Pastel Meltaways gradient for the text -->
+  <defs>
+    <linearGradient id="pastelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAD4D8" />
+      <stop offset="50%" stop-color="#CFD1EA" />
+      <stop offset="100%" stop-color="#FAD4D8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main text -->
+  <text x="10" y="28" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="url(#pastelGradient)">Celesti</text>
+  
+  <!-- Decorative element -->
+  <path d="M4,20 L8,20" stroke="#CCE2CB" stroke-width="1.5" />
+  <path d="M108,20 L116,20" stroke="#CCE2CB" stroke-width="1.5" />
+</svg>

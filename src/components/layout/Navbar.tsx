@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import logo from '@/../public/celesti-gold-logo.svg';
+
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -54,40 +56,46 @@ const Navbar = () => {
       // If not on home page, the regular link navigation will work
       console.log('Navigating to services page');
     }
-  };
-  return (
-    <header className="w-full px-4 lg:px-6 h-14 flex items-center justify-between fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#0F172A] backdrop-blur-sm border-b border-gray-100 dark:border-[#1E293B]">
-      <div className="container mx-auto flex justify-between items-center">
-        <Link href="/" className="flex items-center">
-          <span className="font-semibold text-xl">
-            &lt; <span className="text-black dark:text-[#D4AF37]">Agencies</span>
-          </span>
-        </Link>        {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-6">
-          <Link href="/work" className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300">
+  };  return (
+    <header className="w-full px-4 lg:px-6 h-14 flex items-center justify-between fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#CFD1EA] backdrop-blur-sm border-b border-gray-100 dark:border-[#FAD4D8]">
+      <div className="container mx-auto flex justify-between items-center"><Link href="/" className="flex items-center">
+          <div className="flex items-center">            <Image 
+              src={logo}
+              alt="Celesti Logo" 
+              width={120} 
+              height={40} 
+              priority
+              style={{ 
+                height: '40px',
+                width: 'auto',
+                objectFit: 'contain'
+              }}
+            />
+          </div>
+        </Link>{/* Desktop Navigation */}
+        <nav className="hidden md:flex gap-6">          <Link href="/work" className="text-sm font-medium hover:text-[#FAD4D8] transition-colors duration-300">
             Work
           </Link>          <Link 
             href={pathname === '/' ? '#services' : '/services'} 
-            className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300"
+            className="text-sm font-medium hover:text-[#FAD4D8] transition-colors duration-300"
             onClick={handleServicesClick}
             aria-current={pathname === '/services' ? 'page' : undefined}
           >
             Services
           </Link>
-          <Link href="/packages" className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300">
+          <Link href="/packages" className="text-sm font-medium hover:text-[#FAD4D8] transition-colors duration-300">
             Packages
           </Link>
-          <Link href="/templates" className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300">
+          <Link href="/templates" className="text-sm font-medium hover:text-[#FAD4D8] transition-colors duration-300">
             Templates
           </Link>
-          <Link href="/blog" className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300">
+          <Link href="/blog" className="text-sm font-medium hover:text-[#FAD4D8] transition-colors duration-300">
             Blog
           </Link>
         </nav>        {/* Contact Button */}
-        <div className="hidden md:block">
-          <Link
+        <div className="hidden md:block">          <Link
             href="/contact"
-            className="inline-flex h-9 items-center justify-center rounded-md bg-[#D4AF37] px-4 py-2 text-sm font-medium text-[#0F172A] shadow transition-colors hover:bg-[#FEF3C7] hover:text-[#0F172A] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#D4AF37] disabled:pointer-events-none disabled:opacity-50">
+            className="inline-flex h-9 items-center justify-center rounded-md bg-[#FAD4D8] px-4 py-2 text-sm font-medium text-[#333333] shadow transition-colors hover:bg-[#F2F0D5] hover:text-[#333333] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#FAD4D8] disabled:pointer-events-none disabled:opacity-50">
             Contact
           </Link>
         </div>
@@ -101,10 +109,9 @@ const Navbar = () => {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
+            viewBox="0 0 24 24"            strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6 text-black dark:text-[#D4AF37]"
+            className="w-6 h-6 text-black dark:text-[#FAD4D8]"
           >
             <path
               strokeLinecap="round"
@@ -115,22 +122,20 @@ const Navbar = () => {
         </button>
       </div>      {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
+        <motion.div          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.2 }}
-          className="absolute top-14 left-0 right-0 bg-white dark:bg-[#0F172A] shadow-lg p-4 md:hidden border-t border-gray-100 dark:border-[#1E293B]"
-        >          <nav className="flex flex-col gap-4">
-            <Link 
+          className="absolute top-14 left-0 right-0 bg-white dark:bg-[#CFD1EA] shadow-lg p-4 md:hidden border-t border-gray-100 dark:border-[#FAD4D8]"
+        >          <nav className="flex flex-col gap-4">            <Link 
               href="/work" 
-              className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300"
+              className="text-sm font-medium hover:text-[#FAD4D8] transition-colors duration-300"
               onClick={() => setMobileMenuOpen(false)}
             >
               Work
             </Link>            <Link 
               href={pathname === '/' ? '#services' : '/services'}
-              className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300"
+              className="text-sm font-medium hover:text-[#FAD4D8] transition-colors duration-300"
               onClick={handleServicesClick}
               aria-current={pathname === '/services' ? 'page' : undefined}
             >
@@ -138,27 +143,26 @@ const Navbar = () => {
             </Link>
             <Link 
               href="/packages" 
-              className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300"
+              className="text-sm font-medium hover:text-[#FAD4D8] transition-colors duration-300"
               onClick={() => setMobileMenuOpen(false)}
             >
               Packages
             </Link>            <Link 
               href="/templates" 
-              className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300"
+              className="text-sm font-medium hover:text-[#FAD4D8] transition-colors duration-300"
               onClick={() => setMobileMenuOpen(false)}
             >
               Templates
             </Link>
             <Link 
               href="/blog" 
-              className="text-sm font-medium hover:text-[#D4AF37] transition-colors duration-300"
+              className="text-sm font-medium hover:text-[#FAD4D8] transition-colors duration-300"
               onClick={() => setMobileMenuOpen(false)}
             >
               Blog
-            </Link>
-            <Link 
+            </Link>            <Link 
               href="/contact"
-              className="inline-flex h-9 w-full items-center justify-center rounded-md bg-[#D4AF37] px-4 py-2 text-sm font-medium text-[#0F172A] shadow transition-colors hover:bg-[#FEF3C7] hover:text-[#0F172A] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#D4AF37] disabled:pointer-events-none disabled:opacity-50"
+              className="inline-flex h-9 w-full items-center justify-center rounded-md bg-[#FAD4D8] px-4 py-2 text-sm font-medium text-[#333333] shadow transition-colors hover:bg-[#F2F0D5] hover:text-[#333333] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#FAD4D8] disabled:pointer-events-none disabled:opacity-50"
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact

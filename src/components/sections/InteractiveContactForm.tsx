@@ -57,14 +57,23 @@ const InteractiveContactForm = () => {
       nextStep();
     }
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Make actual API call to our backend
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
       
       // Reset the form
       setFormData({
@@ -81,6 +90,7 @@ const InteractiveContactForm = () => {
       
     } catch (error) {
       console.error("Error submitting form:", error);
+      // Could add error handling UI here
     } finally {
       setIsSubmitting(false);
     }
@@ -125,9 +135,8 @@ const InteractiveContactForm = () => {
     },
     exit: { opacity: 0, scale: 0.8, transition: { duration: 0.3 } }
   };
-
   return (
-    <section className="w-full py-20 md:py-32 bg-gray-50 dark:bg-[#0F172A]/95 relative overflow-hidden">
+    <section className="w-full py-20 md:py-32 bg-gray-50 dark:bg-[#CFD1EA]/95 relative overflow-hidden">
       <div className="absolute inset-0 dark:bg-[url('/images/grid-pattern.png')] dark:opacity-5 pointer-events-none"></div>
       
       {/* Floating decorative elements */}
@@ -135,9 +144,8 @@ const InteractiveContactForm = () => {
         className="absolute inset-0 overflow-hidden pointer-events-none"
         initial="hidden"
         animate="visible"
-      >
-        <motion.div 
-          className="absolute top-20 left-[10%] text-[#D4AF37] opacity-20"
+      >        <motion.div 
+          className="absolute top-20 left-[10%] text-[#FAD4D8] opacity-20"
           variants={floatingElementVariants}
           custom={0}
         >
@@ -146,7 +154,7 @@ const InteractiveContactForm = () => {
           </svg>
         </motion.div>
         <motion.div 
-          className="absolute top-1/3 right-[15%] text-[#D4AF37] opacity-15"
+          className="absolute top-1/3 right-[15%] text-[#FAD4D8] opacity-15"
           variants={floatingElementVariants}
           custom={1}
         >
@@ -155,7 +163,7 @@ const InteractiveContactForm = () => {
           </svg>
         </motion.div>
         <motion.div 
-          className="absolute bottom-1/4 left-[20%] text-[#D4AF37] opacity-10"
+          className="absolute bottom-1/4 left-[20%] text-[#CCE2CB] opacity-10"
           variants={floatingElementVariants}
           custom={2}
         >
@@ -181,10 +189,9 @@ const InteractiveContactForm = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className="text-center mb-16"
-        >
-          <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37]">Get in Touch</div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-5 dark:text-[#D4AF37]">Let's Start a Conversation</h2>
-          <p className="text-gray-600 dark:text-[#E2E8F0] max-w-2xl mx-auto text-lg">
+        >          <div className="inline-block mb-3 text-sm font-medium px-3 py-1 rounded-full bg-[#FAD4D8]/20 text-[#333333]">Get in Touch</div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-5 dark:text-[#333333]">Let's Start a Conversation</h2>
+          <p className="text-gray-600 dark:text-[#333333] max-w-2xl mx-auto text-lg">
             Complete this interactive form and we'll get back to you within 24 hours with a personalized consultation.
           </p>
         </motion.div>
@@ -194,18 +201,17 @@ const InteractiveContactForm = () => {
             variants={formVariants}
             initial="hidden"
             animate={controls}
-            className="relative bg-white/80 dark:bg-[#1E293B]/90 p-8 md:p-10 rounded-2xl shadow-xl dark:shadow-[0_8px_30px_rgb(0,0,0,0.12)] backdrop-blur-sm border border-gray-100 dark:border-[#334155]/30"
+            className="relative bg-white/80 dark:bg-[#F2F0D5]/90 p-8 md:p-10 rounded-2xl shadow-xl dark:shadow-[0_8px_30px_rgb(0,0,0,0.08)] backdrop-blur-sm border border-gray-100 dark:border-[#CCE2CB]/30"
           >
             {/* Progress indicator */}
             <div className="mb-8">
               <div className="flex justify-between text-xs text-gray-500 dark:text-[#94A3B8] mb-2">
                 <span>Step {activeStep + 1} of {steps.length}</span>
                 <span>{((activeStep + 1) / steps.length * 100).toFixed(0)}% Complete</span>
-              </div>
-              <div className="h-2 bg-gray-100 dark:bg-[#0F172A] rounded-full overflow-hidden">
+              </div>              <div className="h-2 bg-gray-100 dark:bg-[#CFD1EA] rounded-full overflow-hidden">
                 <div 
                   ref={progressRef}
-                  className="h-full bg-gradient-to-r from-[#D4AF37] to-[#FEF3C7] transition-all duration-300 ease-out"
+                  className="h-full bg-gradient-to-r from-[#FAD4D8] to-[#CCE2CB] transition-all duration-300 ease-out"
                   style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
                 ></div>
               </div>
@@ -224,22 +230,20 @@ const InteractiveContactForm = () => {
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
-                    className="w-20 h-20 rounded-full bg-[#D4AF37]/10 flex items-center justify-center mb-6"
+                    transition={{ type: "spring", stiffness: 200, delay: 0.2 }}                    className="w-20 h-20 rounded-full bg-[#FAD4D8]/20 flex items-center justify-center mb-6"
                   >
-                    <svg className="w-10 h-10 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-10 h-10 text-[#FAD4D8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                     </svg>
                   </motion.div>
-                  <h3 className="text-2xl font-semibold mb-2 dark:text-[#D4AF37]">Message Sent!</h3>
-                  <p className="text-gray-600 dark:text-[#E2E8F0] mb-8">
+                  <h3 className="text-2xl font-semibold mb-2 dark:text-[#333333]">Message Sent!</h3>                  <p className="text-gray-600 dark:text-[#333333] mb-8">
                     Thank you for reaching out. Our team will review your message and respond within 24 hours.
                   </p>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setSubmitted(false)}
-                    className="px-6 py-2 text-sm border border-[#D4AF37]/30 rounded-md text-gray-800 dark:text-[#D4AF37] hover:bg-[#D4AF37]/10 transition-colors"
+                    className="px-6 py-2 text-sm border border-[#FAD4D8]/50 rounded-md text-gray-800 dark:text-[#333333] hover:bg-[#FAD4D8]/10 transition-colors"
                   >
                     Send Another Message
                   </motion.button>
@@ -254,8 +258,7 @@ const InteractiveContactForm = () => {
                       animate="visible"
                       exit="exit"
                       className="mb-8 min-h-[200px]"
-                    >
-                      <label className="block text-2xl font-medium text-gray-800 dark:text-[#D4AF37] mb-6">
+                    >                      <label className="block text-2xl font-medium text-gray-800 dark:text-[#333333] mb-6">
                         {steps[activeStep].label}
                       </label>
                       
@@ -270,7 +273,7 @@ const InteractiveContactForm = () => {
                           autoFocus
                           required
                           suppressHydrationWarning
-                          className="w-full px-4 py-3 text-lg border-b-2 border-gray-300 dark:border-[#334155] bg-transparent focus:border-[#D4AF37] focus:ring-0 focus:outline-none transition-colors dark:text-white resize-none"
+                          className="w-full px-4 py-3 text-lg border-b-2 border-gray-300 dark:border-[#CCE2CB] bg-transparent focus:border-[#FAD4D8] focus:ring-0 focus:outline-none transition-colors dark:text-[#333333] resize-none"
                         />
                       ) : (
                         <input
@@ -283,7 +286,7 @@ const InteractiveContactForm = () => {
                           autoFocus
                           required
                           suppressHydrationWarning
-                          className="w-full px-4 py-3 text-lg border-b-2 border-gray-300 dark:border-[#334155] bg-transparent focus:border-[#D4AF37] focus:ring-0 focus:outline-none transition-colors dark:text-white"
+                          className="w-full px-4 py-3 text-lg border-b-2 border-gray-300 dark:border-[#CCE2CB] bg-transparent focus:border-[#FAD4D8] focus:ring-0 focus:outline-none transition-colors dark:text-[#333333]"
                         />
                       )}
                     </motion.div>
@@ -299,7 +302,7 @@ const InteractiveContactForm = () => {
                       className={`flex items-center px-4 py-2 rounded-md ${
                         activeStep === 0
                           ? "opacity-50 cursor-not-allowed text-gray-400 dark:text-gray-600"
-                          : "text-gray-700 dark:text-[#E2E8F0] hover:bg-gray-100 dark:hover:bg-[#0F172A]/50"
+                          : "text-gray-700 dark:text-[#333333] hover:bg-gray-100 dark:hover:bg-[#CCE2CB]/30"
                       } transition-colors`}
                     >
                       <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -360,7 +363,7 @@ const InteractiveContactForm = () => {
               <span className="w-10 h-px bg-gray-300 dark:bg-[#334155]"></span>
             </div>
             <div className="flex space-x-4">
-              <a href="mailto:contact@luxuryagency.com" className="text-gray-600 dark:text-[#E2E8F0] hover:text-[#D4AF37] dark:hover:text-[#D4AF37] transition-colors">
+              <a href="mailto:contact@celesti.com" className="text-gray-600 dark:text-[#E2E8F0] hover:text-[#D4AF37] dark:hover:text-[#D4AF37] transition-colors">
                 <span className="sr-only">Email</span>
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>

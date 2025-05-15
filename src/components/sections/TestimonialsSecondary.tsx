@@ -36,9 +36,8 @@ const TestimonialSecondary = ({ quote, name, position, company }: TestimonialPro
 const TestimonialsSecondary = () => {
   return (
     <section className="w-full py-12 md:py-24">
-      <div className="container mx-auto px-4 md:px-6">
-        <TestimonialSecondary
-          quote="Agencies are different and one of my best buds. They use your instructions very well, and have a great team of developers. They are very responsive and always available to help. I would highly recommend them to anyone looking for a website or app development."
+      <div className="container mx-auto px-4 md:px-6">        <TestimonialSecondary
+          quote="Celesti is different and one of my best buds. They use your instructions very well, and have a great team of developers. They are very responsive and always available to help. I would highly recommend them to anyone looking for a website or app development."
           name="Michael Scott"
           position="Manager of Docker MRUs"
           company=""
