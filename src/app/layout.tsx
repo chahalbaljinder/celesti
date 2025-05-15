@@ -23,10 +23,10 @@ export const metadata: Metadata = {
     description: "Elegant digital experiences with our signature pastel aesthetic.",
     images: [
       {
-        url: '/celesti-gold-logo.svg',
-        width: 160,
-        height: 50,
-        alt: 'Celesti Logo',
+        url: '/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Celesti - Premium Web Development',
       }
     ],
     locale: 'en_US',

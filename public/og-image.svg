@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pastelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAD4D8" />
+      <stop offset="33%" stop-color="#CCE2CB" />
+      <stop offset="66%" stop-color="#CFD1EA" />
+      <stop offset="100%" stop-color="#F2F0D5" />
+    </linearGradient>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD700" />
+      <stop offset="50%" stop-color="#E6BE8A" />
+      <stop offset="100%" stop-color="#FFD700" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Background with pastel gradient -->
+  <rect width="1200" height="630" fill="url(#pastelGradient)" />
+  
+  <!-- Decorative elements -->
+  <circle cx="200" cy="150" r="80" fill="#FAD4D8" opacity="0.5" />
+  <circle cx="1000" cy="500" r="120" fill="#CFD1EA" opacity="0.5" />
+  <circle cx="900" cy="150" r="60" fill="#CCE2CB" opacity="0.6" />
+  <circle cx="300" cy="480" r="100" fill="#F2F0D5" opacity="0.7" />
+  
+  <!-- Logo and text -->
+  <g transform="translate(400, 200)">
+    <!-- Main Text -->
+    <text x="0" y="70" font-family="Georgia, serif" font-size="90" font-weight="bold" fill="url(#goldGradient)" filter="url(#glow)">Celesti</text>
+    
+    <!-- Stars -->
+    <g fill="url(#goldGradient)">
+      <!-- Star 1 -->
+      <path d="M340,45 L350,70 L380,75 L360,95 L365,125 L340,110 L315,125 L320,95 L300,75 L330,70 Z" />
+      <!-- Star 2 -->
+      <path d="M380,20 L385,35 L405,38 L393,48 L398,68 L380,58 L362,68 L367,48 L355,38 L375,35 Z" />
+      <!-- Star 3 -->
+      <path d="M355,130 L360,145 L380,148 L368,158 L373,178 L355,168 L337,178 L342,158 L330,148 L350,145 Z" />
+    </g>
+  </g>
+  
+  <!-- Tagline -->
+  <text x="600" y="350" font-family="Arial, sans-serif" font-size="32" font-weight="normal" fill="#333333" text-anchor="middle">Premium Web Development & Design</text>
+  <text x="600" y="400" font-family="Arial, sans-serif" font-size="24" font-weight="normal" fill="#333333" text-anchor="middle">Crafting elegant digital experiences</text>
+</svg>

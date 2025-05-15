@@ -6,15 +6,14 @@ import Link from "next/link";
 
 const Hero = () => {  return (    <section className="w-full py-24 md:py-32 dark:bg-gradient-to-b dark:from-[#CFD1EA] dark:to-[#F2F0D5]">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col items-center text-center space-y-4">
-          <motion.div
+        <div className="flex flex-col items-center text-center space-y-4">          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="space-y-2"
           >
             <div className="inline-block rounded-full bg-[#CCE2CB] px-3 py-1 text-sm text-[#333333] border border-[#FAD4D8]/30">
-              PREMIUM DEVELOPMENT
+              CELESTIAL DESIGN
             </div>
           </motion.div>          <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -22,9 +21,9 @@ const Hero = () => {  return (    <section className="w-full py-24 md:py-32 dark
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            Web Apps that{" "}
+            Digital Experiences{" "}
             <span className="bg-gradient-to-r from-[#FAD4D8] to-[#CFD1EA] bg-clip-text text-transparent">
-              Make Sense.
+              That Inspire.
             </span>
           </motion.h1>          <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -32,7 +31,7 @@ const Hero = () => {  return (    <section className="w-full py-24 md:py-32 dark
             transition={{ duration: 0.5, delay: 0.4 }}
             className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-[#333333]"
           >
-            We create beautiful websites and applications that rival the most popular services like Google and Facebook. We blend marketing insights with good code.
+            At Celesti, we craft gorgeous websites and applications with our signature pastel aesthetic. We blend beautiful design with powerful functionality to create digital experiences that stand out.
           </motion.p>
         </div>
       </div>
